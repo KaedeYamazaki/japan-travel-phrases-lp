@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Say It In Japan — offline Japanese phrases for your trip</title>
+<meta name="description" content="Practice the ~20 Japanese phrases travelers actually use. Works offline. Pay once, no subscription.">
+<meta property="og:title" content="Say It In Japan">
+<meta property="og:description" content="The ~20 Japanese phrases travelers actually use — practice them out loud before your trip. Works offline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@500;700&display=swap">
+<style>
+  :root {
+    --bg: #fbf8f3;
+    --ink: #1d1b19;
+    --muted: #6b645c;
+    --accent: #c8102e;
+    --accent-ink: #ffffff;
+    --card: #ffffff;
+    --line: #e7e0d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161412;
+      --ink: #f3eee7;
+      --muted: #a39b91;
+      --accent: #ff4d5e;
+      --accent-ink: #1a0b0d;
+      --card: #211e1b;
+      --line: #35302b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 Inter, system-ui, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  .jp { font-family: "Noto Sans JP", sans-serif; }
+  header { padding: 20px 0; font-weight: 800; letter-spacing: -0.01em; }
+  header span { color: var(--accent); }
+  .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; padding: 32px 0 56px; }
+  h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 16px; }
+  .lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 24px; }
+  .price { display: inline-flex; gap: 10px; align-items: baseline; margin-bottom: 20px; }
+  .price b { font-size: 1.6rem; }
+  .price s { color: var(--muted); }
+  .price small { color: var(--muted); }
+  form { display: flex; gap: 8px; flex-wrap: wrap; }
+  input[type=email] { flex: 1 1 220px; padding: 14px 16px; font: inherit; border: 1.5px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); }
+  button { padding: 14px 22px; font: 600 1rem Inter, sans-serif; border: 0; border-radius: 12px; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+  button:disabled { opacity: .6; cursor: default; }
+  .fine { color: var(--muted); font-size: .85rem; margin-top: 10px; }
+  .ok { display: none; padding: 14px 16px; border-radius: 12px; background: var(--card); border: 1.5px solid var(--line); }
+  .phone { justify-self: center; width: 280px; border-radius: 36px; padding: 14px; background: var(--ink); box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
+  .screen { border-radius: 26px; background: var(--card); padding: 22px 18px; min-height: 480px; display: flex; flex-direction: column; gap: 14px; }
+  .count { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .phrase { border: 1.5px solid var(--line); border-radius: 18px; padding: 16px; }
+  .phrase .ro { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+  .phrase .ka { color: var(--muted); }
+  .play { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; margin: 6px auto 0; }
+  .play::after { content: ""; border-left: 18px solid var(--accent-ink); border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 5px; }
+  .badge { align-self: flex-start; font-size: .8rem; padding: 4px 10px; border-radius: 999px; border: 1.5px solid var(--line); }
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.8rem; letter-spacing: -0.02em; margin: 0 0 24px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .card p { margin: 0; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 10px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { font-weight: 600; width: 45%; }
+  .yes { color: var(--accent); font-weight: 600; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: .85rem; }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; }
+    .grid3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>Say It <span>In Japan</span></header>
+
+  <div class="hero">
+    <div>
+      <h1>The ~20 Japanese phrases you'll actually use. Say them yourself.</h1>
+      <p class="lead">Translation apps are great for long talks. For "this one, please", "two people" and "no bag, thanks", it's faster to just say it. Practice out loud before your trip — works fully offline in Japan.</p>
+      <div class="price"><b>$6.99</b><s>$9.99</s><small>launch price · pay once · no subscription</small></div>
+      <form id="waitlist">
+        <input type="email" name="email" required placeholder="you@email.com" aria-label="Email">
+        <button type="submit">Get the launch price</button>
+      </form>
+      <div class="ok" id="ok">You're on the list. We'll email you once when the app launches on iPhone — that's it.</div>
+      <p class="fine">iPhone app, launching early 2027. One email at launch, no spam. Emergency phrases + 1 scene are free forever.</p>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="count">12 days until Japan ✈︎</div>
+        <div class="badge">Konbini · 4 / 12</div>
+        <div class="phrase">
+          <div class="ro">Daijoubu desu</div>
+          <div class="ka jp">だいじょうぶです</div>
+          <div>No thanks / I'm fine</div>
+        </div>
+        <div class="play"></div>
+        <div class="fine" style="text-align:center">Tap, listen, say it back</div>
+        <div class="phrase">
+          <div class="ka">You'll hear:</div>
+          <div class="ro jp" style="font-size:1.15rem">袋いりますか？</div>
+          <div>"Do you need a bag?"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Made for a trip, not a language course</h2>
+    <div class="grid3">
+      <div class="card"><h3>Say</h3><p>The phrases returning travelers say they wish they'd learned — by scene: konbini, restaurants, trains, hotels.</p></div>
+      <div class="card"><h3>Show</h3><p>Allergy & diet cards written in natural Japanese. Hand your phone to the staff. Free, always.</p></div>
+      <div class="card"><h3>Hear</h3><p>The few questions staff always ask ("bag?", "heat it up?", "eat in?") and the two-word answers.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What's free, what's paid — up front</h2>
+    <table>
+      <tr><td>Emergency phrases (help, allergy, hospital, sorry)</td><td class="yes">Free forever</td></tr>
+      <tr><td>Your first scene, start to finish</td><td class="yes">Free</td></tr>
+      <tr><td>All 8 scenes + allergy cards</td><td>$6.99 once at launch ($9.99 after)</td></tr>
+      <tr><td>Subscription</td><td>None. Pay once, keep it.</td></tr>
+      <tr><td>Internet needed in Japan</td><td>No. Everything works offline.</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    Made by a Japanese developer in Japan. We store only your email, to send one launch email. Ask us to delete it anytime by replying to that email.
+  </footer>
+</div>
+
+<script>
+  // ---- 設定（公開前に差し替える）------------------------------------------
+  // GOOGLE_FORM_ACTION: Googleフォームの formResponse URL
+  // GOOGLE_FORM_EMAIL_ENTRY: メール欄の entry.XXXXXXXX
+  // GOOGLE_FORM_SOURCE_ENTRY: 流入元（utm_source/utm_campaign）を入れる短文欄の entry.XXXXXXXX
+  // POSTHOG_KEY: PostHog の Project API Key（phc_...）
+  const CONFIG = {
+    GOOGLE_FORM_ACTION: "https://docs.google.com/forms/d/e/REPLACE_ME/formResponse",
+    GOOGLE_FORM_EMAIL_ENTRY: "entry.REPLACE_ME",
+    GOOGLE_FORM_SOURCE_ENTRY: "entry.REPLACE_ME",
+    POSTHOG_KEY: "phc_REPLACE_ME",
+    POSTHOG_HOST: "https://us.i.posthog.com",
+  };
+  // ---------------------------------------------------------------------------
+
+  const params = new URLSearchParams(location.search);
+  const source = ["utm_source", "utm_medium", "utm_campaign"].map(k => params.get(k) || "-").join("/");
+
+  // PostHog：Cookieを使わない（persistence: memory）匿名計測。メールアドレスは送らない。
+  if (!CONFIG.POSTHOG_KEY.includes("REPLACE_ME")) {
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init(CONFIG.POSTHOG_KEY, {
+      api_host: CONFIG.POSTHOG_HOST,
+      persistence: "memory",
+      disable_session_recording: true,
+      autocapture: false,
+    });
+    posthog.capture("$pageview");
+  }
+  const track = (event, props) => window.posthog && window.posthog.capture && window.posthog.capture(event, props);
+
+  // 価格の欄まで見たか（読み進めの指標）
+  let seenPrice = false;
+  new IntersectionObserver(entries => {
+    if (!seenPrice && entries.some(e => e.isIntersecting)) { seenPrice = true; track("lp_pricing_seen"); }
+  }).observe(document.querySelector("table"));
+
+  const form = document.getElementById("waitlist");
+  form.querySelector("input").addEventListener("focus", () => track("lp_email_focused"), { once: true });
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    // 設定前は送信しない（no-cors では失敗を検知できず、登録を取りこぼすため）
+    if ([CONFIG.GOOGLE_FORM_ACTION, CONFIG.GOOGLE_FORM_EMAIL_ENTRY, CONFIG.GOOGLE_FORM_SOURCE_ENTRY].some(v => v.includes("REPLACE_ME"))) {
+      alert("Sign-up isn't open yet — please check back soon.");
+      return;
+    }
+    const button = form.querySelector("button");
+    button.disabled = true;
+    const body = new FormData();
+    body.append(CONFIG.GOOGLE_FORM_EMAIL_ENTRY, form.email.value.trim());
+    body.append(CONFIG.GOOGLE_FORM_SOURCE_ENTRY, source);
+    try {
+      // Googleフォームは CORS 応答を返さないので no-cors で送る（成否は応答から判定できない）
+      await fetch(CONFIG.GOOGLE_FORM_ACTION, { method: "POST", mode: "no-cors", body });
+      track("waitlist_submitted");
+      form.style.display = "none";
+      document.getElementById("ok").style.display = "block";
+    } catch (err) {
+      button.disabled = false;
+      alert("Something went wrong — please try again.");
+    }
+  });
+</script>
+</body>
+</html>
