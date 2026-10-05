@@ -144,9 +144,9 @@
   // GOOGLE_FORM_SOURCE_ENTRY: 流入元（utm_source/utm_campaign）を入れる短文欄の entry.XXXXXXXX
   // POSTHOG_KEY: PostHog の Project API Key（phc_...）
   const CONFIG = {
-    GOOGLE_FORM_ACTION: "https://docs.google.com/forms/d/e/REPLACE_ME/formResponse",
-    GOOGLE_FORM_EMAIL_ENTRY: "entry.REPLACE_ME",
-    GOOGLE_FORM_SOURCE_ENTRY: "entry.REPLACE_ME",
+    GOOGLE_FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLSdJgGhWug7-BOz13jjHbanzQNxPJu6RGcLRM67BFjQf7pKe6Q/formResponse",
+    GOOGLE_FORM_EMAIL_ENTRY: "entry.1107225813",
+    GOOGLE_FORM_SOURCE_ENTRY: "entry.1026547694",
     POSTHOG_KEY: "phc_REPLACE_ME",
     POSTHOG_HOST: "https://us.i.posthog.com",
   };
@@ -185,7 +185,7 @@
     }
     const button = form.querySelector("button");
     button.disabled = true;
-    const body = new FormData();
+    const body = new URLSearchParams();
     body.append(CONFIG.GOOGLE_FORM_EMAIL_ENTRY, form.email.value.trim());
     body.append(CONFIG.GOOGLE_FORM_SOURCE_ENTRY, source);
     try {
