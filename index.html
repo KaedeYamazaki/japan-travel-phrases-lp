@@ -49,6 +49,13 @@
   button:disabled { opacity: .6; cursor: default; }
   .fine { color: var(--muted); font-size: .85rem; margin-top: 10px; }
   .ok { display: none; padding: 14px 16px; border-radius: 12px; background: var(--card); border: 1.5px solid var(--line); }
+  .survey { display: none; padding: 16px; border-radius: 12px; background: var(--card); border: 1.5px solid var(--line); }
+  .survey p { margin: 0 0 4px; }
+  .survey .q { font-weight: 600; margin-bottom: 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips button { padding: 10px 14px; font-weight: 600; font-size: .95rem; background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .chips button:hover { border-color: var(--accent); }
+  .survey .skip { margin-top: 10px; padding: 6px 0; background: none; color: var(--muted); font-weight: 400; font-size: .85rem; text-decoration: underline; }
   .phone { justify-self: center; width: 280px; border-radius: 36px; padding: 14px; background: var(--ink); box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
   .screen { border-radius: 26px; background: var(--card); padding: 22px 18px; min-height: 480px; display: flex; flex-direction: column; gap: 14px; }
   .count { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
@@ -88,6 +95,18 @@
         <input type="email" name="email" required placeholder="you@email.com" aria-label="Email">
         <button type="submit">Get the launch price</button>
       </form>
+      <div class="survey" id="survey">
+        <p>✓ You're on the list.</p>
+        <p class="q">One quick question — when are you heading to Japan?</p>
+        <div class="chips">
+          <button type="button" data-trip="2026-11_12">Nov – Dec 2026</button>
+          <button type="button" data-trip="2027-01_02">Jan – Feb 2027</button>
+          <button type="button" data-trip="2027-03_04">Mar – Apr 2027 🌸</button>
+          <button type="button" data-trip="2027-later">Later in 2027</button>
+          <button type="button" data-trip="not-booked">Not booked yet</button>
+        </div>
+        <button type="button" class="skip" id="survey-skip">Skip</button>
+      </div>
       <div class="ok" id="ok">You're on the list. We'll email you once when the app launches on iPhone — that's it.</div>
       <p class="fine">iPhone app, launching early 2027. One email at launch, no spam. Emergency phrases + 1 scene are free forever.</p>
     </div>
@@ -133,7 +152,7 @@
   </section>
 
   <footer>
-    Made by a Japanese developer in Japan. We store only your email, to send one launch email. Ask us to delete it anytime by replying to that email.
+    Made by a Japanese developer in Japan. We store only your email (plus your trip timing, if you choose to share it), to send one launch email. Ask us to delete it anytime by replying to that email.
   </footer>
 </div>
 
@@ -142,11 +161,13 @@
   // GOOGLE_FORM_ACTION: Googleフォームの formResponse URL
   // GOOGLE_FORM_EMAIL_ENTRY: メール欄の entry.XXXXXXXX
   // GOOGLE_FORM_SOURCE_ENTRY: 流入元（utm_source/utm_campaign）を入れる短文欄の entry.XXXXXXXX
+  // GOOGLE_FORM_TRIP_ENTRY: 訪日時期を入れる短文欄の entry.XXXXXXXX（未設定の間はアンケートを出さない）
   // POSTHOG_KEY: PostHog の Project API Key（phc_...）
   const CONFIG = {
     GOOGLE_FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLSdJgGhWug7-BOz13jjHbanzQNxPJu6RGcLRM67BFjQf7pKe6Q/formResponse",
     GOOGLE_FORM_EMAIL_ENTRY: "entry.1107225813",
     GOOGLE_FORM_SOURCE_ENTRY: "entry.1026547694",
+    GOOGLE_FORM_TRIP_ENTRY: "entry.1679488694",
     POSTHOG_KEY: "phc_wggWBwPj48phkzbTctw7g36E2pdd5NUwNfYWUjPWfcpD",
     POSTHOG_HOST: "https://eu.i.posthog.com",
   };
@@ -193,11 +214,40 @@
       await fetch(CONFIG.GOOGLE_FORM_ACTION, { method: "POST", mode: "no-cors", body });
       track("waitlist_submitted");
       form.style.display = "none";
-      document.getElementById("ok").style.display = "block";
+      if (CONFIG.GOOGLE_FORM_TRIP_ENTRY.includes("REPLACE_ME")) {
+        document.getElementById("ok").style.display = "block";
+      } else {
+        survey.style.display = "block";
+        track("trip_survey_shown");
+      }
     } catch (err) {
       button.disabled = false;
       alert("Something went wrong — please try again.");
     }
+  });
+
+  // 訪日時期のアンケート（登録の後に1問だけ。スキップできる）
+  // Googleフォームは回答を書き換えられないので、メール＋流入元＋訪日時期を2行目として送る。
+  // 登録数を数えるときは「訪日時期が空の行」だけを数える（2行目を数えると二重になる）。
+  const survey = document.getElementById("survey");
+  const finishSurvey = () => {
+    survey.style.display = "none";
+    document.getElementById("ok").style.display = "block";
+  };
+  survey.querySelectorAll("[data-trip]").forEach(b => b.addEventListener("click", () => {
+    const trip = b.dataset.trip;
+    const body = new URLSearchParams();
+    body.append(CONFIG.GOOGLE_FORM_EMAIL_ENTRY, form.email.value.trim());
+    body.append(CONFIG.GOOGLE_FORM_SOURCE_ENTRY, source);
+    body.append(CONFIG.GOOGLE_FORM_TRIP_ENTRY, trip);
+    // 登録自体は済んでいるので、失敗しても利用者には見せずに終える
+    fetch(CONFIG.GOOGLE_FORM_ACTION, { method: "POST", mode: "no-cors", body }).catch(() => {});
+    track("trip_survey_answered", { trip });
+    finishSurvey();
+  }));
+  document.getElementById("survey-skip").addEventListener("click", () => {
+    track("trip_survey_skipped");
+    finishSurvey();
   });
 </script>
 </body>
