@@ -3,165 +3,264 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Say It In Japan — arrive knowing what to say</title>
-<meta name="description" content="Turn pre-trip nerves into confidence. Practice the ~20 Japanese phrases travelers actually use, out loud, before you go. Works offline. Pay once.">
+<title>Say It In Japan — Arrive in Japan knowing what to say</title>
+<meta name="description" content="A few key Japanese phrases for travelers. iPhone app, launching early 2027. $6.99 once, no subscription.">
 <meta property="og:title" content="Say It In Japan">
-<meta property="og:description" content="Arrive in Japan knowing what to say. ~20 phrases, practiced out loud before your trip. Works offline.">
+<meta property="og:description" content="Arrive in Japan knowing what to say. A few key phrases, practiced out loud before your trip. Works offline.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@500;700&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap">
 <style>
-  :root {
-    --bg: #fbf8f3;
-    --ink: #1d1b19;
-    --muted: #6b645c;
-    --accent: #c8102e;
-    --accent-ink: #ffffff;
-    --card: #ffffff;
-    --line: #e7e0d6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #161412;
-      --ink: #f3eee7;
-      --muted: #a39b91;
-      --accent: #ff4d5e;
-      --accent-ink: #1a0b0d;
-      --card: #211e1b;
-      --line: #35302b;
-    }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 Inter, system-ui, sans-serif; }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
-  .jp { font-family: "Noto Sans JP", sans-serif; }
-  header { padding: 20px 0; font-weight: 800; letter-spacing: -0.01em; }
-  header span { color: var(--accent); }
-  .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; padding: 32px 0 56px; }
-  h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 16px; }
-  .lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 24px; }
-  .price { display: inline-flex; gap: 10px; align-items: baseline; margin-bottom: 20px; }
-  .price b { font-size: 1.6rem; }
-  .price s { color: var(--muted); }
-  .price small { color: var(--muted); }
-  form { display: flex; gap: 8px; flex-wrap: wrap; }
-  input[type=email] { flex: 1 1 220px; padding: 14px 16px; font: inherit; border: 1.5px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); }
-  button { padding: 14px 22px; font: 600 1rem Inter, sans-serif; border: 0; border-radius: 12px; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
-  button:disabled { opacity: .6; cursor: default; }
-  .fine { color: var(--muted); font-size: .85rem; margin-top: 10px; }
-  .ok { display: none; padding: 14px 16px; border-radius: 12px; background: var(--card); border: 1.5px solid var(--line); }
-  .survey { display: none; padding: 16px; border-radius: 12px; background: var(--card); border: 1.5px solid var(--line); }
-  .survey p { margin: 0 0 4px; }
-  .survey .q { font-weight: 600; margin-bottom: 12px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chips button { padding: 10px 14px; font-weight: 600; font-size: .95rem; background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-  .chips button:hover { border-color: var(--accent); }
-  .survey .skip { margin-top: 10px; padding: 6px 0; background: none; color: var(--muted); font-weight: 400; font-size: .85rem; text-decoration: underline; }
-  .phone { justify-self: center; width: 280px; border-radius: 36px; padding: 14px; background: var(--ink); box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
-  .screen { border-radius: 26px; background: var(--card); padding: 22px 18px; min-height: 480px; display: flex; flex-direction: column; gap: 14px; }
-  .count { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
-  .phrase { border: 1.5px solid var(--line); border-radius: 18px; padding: 16px; }
-  .phrase .ro { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
-  .phrase .ka { color: var(--muted); }
-  .play { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; margin: 6px auto 0; }
-  .play::after { content: ""; border-left: 18px solid var(--accent-ink); border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 5px; }
-  .badge { align-self: flex-start; font-size: .8rem; padding: 4px 10px; border-radius: 999px; border: 1.5px solid var(--line); }
-  section { padding: 48px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 1.8rem; letter-spacing: -0.02em; margin: 0 0 24px; }
-  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .card { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 20px; }
-  .card h3 { margin: 0 0 6px; font-size: 1.1rem; }
-  .card p { margin: 0; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; }
-  td { padding: 10px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  td:first-child { font-weight: 600; width: 45%; }
-  .yes { color: var(--accent); font-weight: 600; }
-  footer { padding: 32px 0 48px; color: var(--muted); font-size: .85rem; }
-  @media (max-width: 760px) {
-    .hero { grid-template-columns: 1fr; gap: 32px; }
-    .grid3 { grid-template-columns: 1fr; }
-  }
+body{margin:0;background:#F7F3EC}
+[hidden]{display:none !important}
+input::placeholder{color:#8A847C}
+.logo:hover,.logo:focus-visible{color:#C8102E !important}
+button:disabled{opacity:.6;cursor:default}
+.opt{border:1.5px solid #DCD2C4;background:#F7F3EC}
+.opt:hover,.opt:focus-visible{border-color:#C8102E;background:#FFFFFF}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>Say It <span>In Japan</span></header>
+<div style="position: relative; overflow: hidden; background: #F7F3EC; color: #141414; font-family: 'Outfit', 'Noto Sans JP', system-ui, sans-serif; min-height: 100vh">
 
-  <div class="hero">
-    <div>
-      <h1>Arrive in Japan knowing what to say.</h1>
-      <p class="lead">Worried about the language barrier? Travelers who've been often say it was smaller than they feared — and that a few words of Japanese made people light up. Practice the ~20 phrases that matter, out loud, in the weeks before you go. Works fully offline.</p>
-      <div class="price"><b>$6.99</b><s>$9.99</s><small>launch price · pay once · no subscription</small></div>
-      <form id="waitlist">
-        <input type="email" name="email" required placeholder="you@email.com" aria-label="Email">
-        <button type="submit">Get the launch price</button>
-      </form>
-      <div class="survey" id="survey">
-        <p>✓ You're on the list.</p>
-        <p class="q">One quick question — when are you heading to Japan?</p>
-        <div class="chips">
-          <button type="button" data-trip="2026-11_12">Nov – Dec 2026</button>
-          <button type="button" data-trip="2027-01_02">Jan – Feb 2027</button>
-          <button type="button" data-trip="2027-03_04">Mar – Apr 2027 🌸</button>
-          <button type="button" data-trip="2027-later">Later in 2027</button>
-          <button type="button" data-trip="not-booked">Not booked yet</button>
-        </div>
-        <button type="button" class="skip" id="survey-skip">Skip</button>
-      </div>
-      <div class="ok" id="ok">You're on the list. We'll email you once when the app launches on iPhone — that's it.</div>
-      <p class="fine">iPhone app, launching early 2027. One email at launch, no spam. Emergency phrases + 1 scene are free forever.</p>
-    </div>
+<svg aria-hidden="true" width="620" height="420" viewBox="0 0 620 420" style="position: absolute; bottom: 0; left: 0; pointer-events: none">
+<defs>
+<pattern id="pWavesBottom" width="40" height="20" patternUnits="userSpaceOnUse" patternTransform="scale(1.6)">
+<g fill="#F7F3EC" stroke="#C8102E" stroke-opacity="0.3" stroke-width="1">
+<g><circle cx="0" cy="0" r="19"></circle><circle cx="0" cy="0" r="14"></circle><circle cx="0" cy="0" r="9"></circle><circle cx="0" cy="0" r="4"></circle></g>
+<g><circle cx="40" cy="0" r="19"></circle><circle cx="40" cy="0" r="14"></circle><circle cx="40" cy="0" r="9"></circle><circle cx="40" cy="0" r="4"></circle></g>
+<g><circle cx="20" cy="10" r="19"></circle><circle cx="20" cy="10" r="14"></circle><circle cx="20" cy="10" r="9"></circle><circle cx="20" cy="10" r="4"></circle></g>
+<g><circle cx="0" cy="20" r="19"></circle><circle cx="0" cy="20" r="14"></circle><circle cx="0" cy="20" r="9"></circle><circle cx="0" cy="20" r="4"></circle></g>
+<g><circle cx="40" cy="20" r="19"></circle><circle cx="40" cy="20" r="14"></circle><circle cx="40" cy="20" r="9"></circle><circle cx="40" cy="20" r="4"></circle></g>
+</g>
+</pattern>
+<radialGradient id="pFadeBottom" cx="0" cy="1" r="1">
+<stop offset="0" stop-color="#fff" stop-opacity="1"></stop>
+<stop offset="0.95" stop-color="#fff" stop-opacity="0"></stop>
+</radialGradient>
+<mask id="pMaskBottom"><rect width="620" height="420" fill="url(#pFadeBottom)"></rect></mask>
+</defs>
+<rect width="620" height="420" fill="url(#pWavesBottom)" mask="url(#pMaskBottom)"></rect>
+</svg>
 
-    <div class="phone" aria-hidden="true">
-      <div class="screen">
-        <div class="count">12 days until Japan ✈︎</div>
-        <div class="badge">Konbini · 4 / 12</div>
-        <div class="phrase">
-          <div class="ro">Daijoubu desu</div>
-          <div class="ka jp">だいじょうぶです</div>
-          <div>No thanks / I'm fine</div>
-        </div>
-        <div class="play"></div>
-        <div class="fine" style="text-align:center">Tap, listen, say it back</div>
-        <div class="phrase">
-          <div class="ka">You'll hear:</div>
-          <div class="ro jp" style="font-size:1.15rem">袋いりますか？</div>
-          <div>"Do you need a bag?"</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<svg aria-hidden="true" width="620" height="420" viewBox="0 0 620 420" style="position: absolute; top: 0; right: 0; pointer-events: none">
+<defs>
+<pattern id="pWavesTop" width="40" height="20" patternUnits="userSpaceOnUse" patternTransform="scale(1.6)">
+<g fill="#F7F3EC" stroke="#C8102E" stroke-opacity="0.3" stroke-width="1">
+<g><circle cx="0" cy="0" r="19"></circle><circle cx="0" cy="0" r="14"></circle><circle cx="0" cy="0" r="9"></circle><circle cx="0" cy="0" r="4"></circle></g>
+<g><circle cx="40" cy="0" r="19"></circle><circle cx="40" cy="0" r="14"></circle><circle cx="40" cy="0" r="9"></circle><circle cx="40" cy="0" r="4"></circle></g>
+<g><circle cx="20" cy="10" r="19"></circle><circle cx="20" cy="10" r="14"></circle><circle cx="20" cy="10" r="9"></circle><circle cx="20" cy="10" r="4"></circle></g>
+<g><circle cx="0" cy="20" r="19"></circle><circle cx="0" cy="20" r="14"></circle><circle cx="0" cy="20" r="9"></circle><circle cx="0" cy="20" r="4"></circle></g>
+<g><circle cx="40" cy="20" r="19"></circle><circle cx="40" cy="20" r="14"></circle><circle cx="40" cy="20" r="9"></circle><circle cx="40" cy="20" r="4"></circle></g>
+</g>
+</pattern>
+<radialGradient id="pFadeTop" cx="1" cy="0" r="1">
+<stop offset="0" stop-color="#fff" stop-opacity="1"></stop>
+<stop offset="0.95" stop-color="#fff" stop-opacity="0"></stop>
+</radialGradient>
+<mask id="pMaskTop"><rect width="620" height="420" fill="url(#pFadeTop)"></rect></mask>
+</defs>
+<rect width="620" height="420" fill="url(#pWavesTop)" mask="url(#pMaskTop)"></rect>
+</svg>
 
-  <section>
-    <h2>A few words, not a language course</h2>
-    <div class="grid3">
-      <div class="card"><h3>Say</h3><p>The phrases returning travelers say they wish they'd learned — by scene: konbini, restaurants, trains, hotels.</p></div>
-      <div class="card"><h3>Show</h3><p>Allergy & diet cards written in natural Japanese. Hand your phone to the staff. Free, always.</p></div>
-      <div class="card"><h3>Hear</h3><p>The few questions staff always ask ("bag?", "heat it up?", "eat in?") and the two-word answers.</p></div>
-    </div>
-  </section>
+<div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 44px 24px 40px; box-sizing: border-box; display: flex; flex-direction: column">
 
-  <section>
-    <h2>What's free, what's paid — up front</h2>
-    <table>
-      <tr><td>Emergency phrases (help, allergy, hospital, sorry)</td><td class="yes">Free forever</td></tr>
-      <tr><td>Your first scene, start to finish</td><td class="yes">Free</td></tr>
-      <tr><td>All 8 scenes + allergy cards</td><td>$6.99 once at launch ($9.99 after)</td></tr>
-      <tr><td>Subscription</td><td>None. Pay once, keep it.</td></tr>
-      <tr><td>Internet needed in Japan</td><td>No. Everything works offline.</td></tr>
-    </table>
-  </section>
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" class="logo" style="text-decoration: none; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #141414; transition: color 0.15s">Say It <span style="color: #C8102E">In Japan</span></a>
+<span style="font-size: 14px; color: #6B665F">iPhone · early 2027</span>
+</header>
 
-  <footer>
-    Made by a Japanese developer in Japan. We store only your email (plus your trip timing, if you choose to share it), to send one launch email. Ask us to delete it anytime by replying to that email.
-  </footer>
+<section id="top" style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 88px 56px; padding: 48px 0 112px">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; max-width: 500px">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<h1 style="margin: 0; font-size: clamp(40px, 5.2vw, 58px); line-height: 1.02; font-weight: 800; letter-spacing: -0.03em">Arrive in Japan knowing what to say.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.5; color: #5E5A55; max-width: 420px">The language barrier is smaller than travelers fear. A few key phrases can go a long way.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px">
+<span style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em">$6.99</span>
+<s style="font-size: 26px; font-weight: 700; color: #8A847C">$9.99</s>
+<span style="font-size: 15px; color: #5E5A55">pay once · no subscription</span>
+</div>
+
+<div id="stepIdle">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<form id="signupForm" novalidate style="display: flex; flex-wrap: wrap; gap: 12px; margin: 0">
+<label for="emailPhoto" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0">Email address</label>
+<input id="emailPhoto" type="email" placeholder="you@email.com" autocomplete="email" style="flex: 1 1 260px; min-width: 0; height: 54px; box-sizing: border-box; padding: 0 16px; border: 1.5px solid #DCD2C4; border-radius: 10px; background: #FBF8F3; font-family: inherit; font-size: 15px; color: #141414">
+<button type="submit" id="submitBtn" style="flex: 0 0 auto; height: 54px; padding: 0 18px; border: 0; border-radius: 10px; background: #C8102E; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Get the launch price</button>
+</form>
+<div id="emailError" hidden>
+<p role="alert" style="margin: -8px 0 0; font-size: 14px; font-weight: 500; color: #B00D27">Please enter a valid email address.</p>
+</div>
+<div id="sendError" hidden>
+<p role="alert" style="margin: -8px 0 0; font-size: 14px; font-weight: 500; color: #B00D27">Something went wrong — please try again.</p>
+</div>
+</div>
+</div>
+
+<div id="stepSurvey" hidden>
+<div role="group" aria-labelledby="surveyTitle" style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border: 1.5px solid #E6DDD0; border-radius: 16px; background: #FBF8F3; box-shadow: 0 16px 32px rgba(60, 40, 20, 0.10)">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: #C8102E">ONE QUICK QUESTION</span>
+<h2 id="surveyTitle" style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">When are you heading to Japan?</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" class="opt" data-trip="2026-11_12" style="min-height: 44px; padding: 0 16px; white-space: nowrap; box-sizing: border-box; border-radius: 10px; transition: border-color 0.15s, background 0.15s; font-family: inherit; font-size: 15px; font-weight: 500; color: #141414; text-align: left; cursor: pointer">Nov – Dec 2026</button>
+<button type="button" class="opt" data-trip="2027-01_02" style="min-height: 44px; padding: 0 16px; white-space: nowrap; box-sizing: border-box; border-radius: 10px; transition: border-color 0.15s, background 0.15s; font-family: inherit; font-size: 15px; font-weight: 500; color: #141414; text-align: left; cursor: pointer">Jan – Feb 2027</button>
+<button type="button" class="opt" data-trip="2027-03_04" style="min-height: 44px; padding: 0 16px; white-space: nowrap; box-sizing: border-box; border-radius: 10px; transition: border-color 0.15s, background 0.15s; font-family: inherit; font-size: 15px; font-weight: 500; color: #141414; text-align: left; cursor: pointer">Mar – Apr 2027 🌸</button>
+<button type="button" class="opt" data-trip="2027-later" style="min-height: 44px; padding: 0 16px; white-space: nowrap; box-sizing: border-box; border-radius: 10px; transition: border-color 0.15s, background 0.15s; font-family: inherit; font-size: 15px; font-weight: 500; color: #141414; text-align: left; cursor: pointer">Later in 2027</button>
+<button type="button" class="opt" data-trip="not-booked" style="min-height: 44px; padding: 0 16px; white-space: nowrap; box-sizing: border-box; border-radius: 10px; transition: border-color 0.15s, background 0.15s; font-family: inherit; font-size: 15px; font-weight: 500; color: #141414; text-align: left; cursor: pointer">Not booked yet</button>
+</div>
+<button type="button" id="skipBtn" style="align-self: flex-end; min-height: 44px; padding: 0 8px; border: 0; background: transparent; font-family: inherit; font-size: 13px; color: #6B665F; text-decoration: underline; cursor: pointer">Skip</button>
+</div>
+</div>
+
+<div id="stepDone" hidden>
+<div role="status" style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1.5px solid #E6DDD0; border-radius: 16px; background: #FBF8F3; box-shadow: 0 16px 32px rgba(60, 40, 20, 0.10)">
+<h2 style="margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em">You’re on the list 🎉</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #5E5A55">We’ll email <strong id="doneEmail" style="color: #141414; word-break: break-all"></strong> when the launch price opens.</p>
+<button type="button" id="resetBtn" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: transparent; font-family: inherit; font-size: 14px; color: #6B665F; text-decoration: underline; cursor: pointer">Use another email</button>
+</div>
+</div>
+
+<p style="margin: 0; font-size: 13px; color: #6B665F">iPhone app, launching early 2027.</p>
+</div>
+</div>
+
+<figure style="flex: 1 1 520px; min-width: 0; margin: 0; position: relative; display: flex; flex-direction: column">
+<img src="assets/airport.jpg" alt="A parent and child at an airport gate smiling at an iPhone showing the phrase Daijoubu desu" style="position: relative; display: block; width: 100%; flex: none; aspect-ratio: 6 / 5; object-fit: cover; object-position: 62% 50%; border-radius: 24px; box-shadow: 0 24px 48px rgba(60, 40, 20, 0.16)">
+<figcaption style="position: absolute; top: 100%; left: 0; right: 0; margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 18px; font-weight: 500; color: #5E5A55; text-align: center">
+<span style="flex: 0 0 auto; width: 28px; height: 2px; background: #C8102E"></span>
+<span>Learn it at the gate. Use it at the counter.</span>
+<span style="flex: 0 0 auto; width: 28px; height: 2px; background: #C8102E"></span>
+</figcaption>
+</figure>
+</section>
+
+<hr style="width: 100%; border: 0; border-top: 1.5px solid #E6DDD0; margin: 0">
+
+<section style="padding: 64px 0; display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-size: clamp(32px, 4.4vw, 46px); line-height: 1.1; font-weight: 800; letter-spacing: -0.025em">A few words, not a language course</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px">
+
+<div style="flex: 0 0 auto; margin: 0 auto; filter: drop-shadow(0 24px 40px rgba(60, 40, 20, 0.18))">
+<div style="position: relative; width: 300px; height: 628px">
+<div style="position: absolute; left: 5%; right: 5%; top: 2.3%; bottom: 2.25%; border-radius: 44px; overflow: hidden; background: #FBF8F3; display: flex; flex-direction: column; padding: 14px 16px 18px; box-sizing: border-box; gap: 12px">
+<div aria-hidden="true" style="display: flex; align-items: center; justify-content: space-between; height: 30px; padding: 0 10px; font-size: 13px; font-weight: 600">
+<span>9:41</span>
+<span style="width: 86px; height: 26px; border-radius: 13px; background: #0A0A0A"></span>
+<span style="display: flex; gap: 4px; align-items: center">
+<svg width="16" height="11" viewBox="0 0 16 11"><rect x="0" y="7" width="3" height="4" rx="0.5" fill="#141414"></rect><rect x="4.3" y="5" width="3" height="6" rx="0.5" fill="#141414"></rect><rect x="8.6" y="2.5" width="3" height="8.5" rx="0.5" fill="#141414"></rect><rect x="12.9" y="0" width="3" height="11" rx="0.5" fill="#141414"></rect></svg>
+<svg width="22" height="11" viewBox="0 0 22 11"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" fill="none" stroke="#141414"></rect><rect x="2" y="2" width="15" height="7" rx="1.5" fill="#141414"></rect><rect x="19.5" y="3.5" width="1.5" height="4" rx="0.75" fill="#141414"></rect></svg>
+</span>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em">
+<span>12 DAYS UNTIL JAPAN</span>
+<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+</div>
+<div style="position: relative; margin-top: 10px; border: 1.5px solid #ECE3D6; border-radius: 16px; background: #FFFFFF; padding: 30px 16px 18px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); padding: 4px 14px; border-radius: 999px; border: 1.5px solid #ECE3D6; background: #FBF1EC; color: #C8102E; font-size: 12px; font-weight: 600; white-space: nowrap">Konbini · 4 / 12</span>
+<span style="font-size: 24px; font-weight: 700; letter-spacing: -0.01em">Daijoubu desu</span>
+<span lang="ja" style="font-family: 'Noto Sans JP', sans-serif; font-size: 15px; color: #6B665F">だいじょうぶです</span>
+<span style="font-size: 13px; color: #6B665F">No thanks / I’m fine</span>
+<button type="button" aria-label="Play audio" style="margin-top: 12px; width: 56px; height: 56px; border-radius: 50%; border: 0; background: #C8102E; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#FFFFFF"></path></svg>
+</button>
+<span style="margin-top: 8px; font-size: 12px; color: #6B665F">Tap, listen, say it back</span>
+</div>
+<div style="border: 1.5px solid #ECE3D6; border-radius: 16px; background: #FFFFFF; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #6B665F">You’ll hear:</span>
+<span lang="ja" style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px; font-weight: 700">袋いりますか？</span>
+<span style="font-size: 13px; color: #6B665F">Do you need a bag?</span>
+</div>
+</div>
+<img src="assets/iphone-frame.png" alt="" style="position: absolute; inset: 0; width: 300px; height: 628px; pointer-events: none">
+</div>
+</div>
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 24px; padding: 24px 28px; border: 1.5px solid #E6DDD0; border-radius: 16px; background: #FBF8F3">
+<svg aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><path d="M12 18v4"></path><path d="M8 22h8"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">Say</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #5E5A55">Practice phrases out loud with native-level audio.</p>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 24px; padding: 24px 28px; border: 1.5px solid #E6DDD0; border-radius: 16px; background: #FBF8F3">
+<svg aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"></path><circle cx="12" cy="12" r="3.5"></circle></svg>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">Show</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #5E5A55">Build real-world confidence for everyday situations.</p>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 24px; padding: 24px 28px; border: 1.5px solid #E6DDD0; border-radius: 16px; background: #FBF8F3">
+<svg aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M6 8.5a6 6 0 1 1 12 0c0 3.5-3 5-3.5 7.5S13 21 10.5 21 7 19.5 7 18"></path><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .7-1.5 1.4-1.5 2.5"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">Hear</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #5E5A55">Listen to natural pronunciations, then say it back.</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<hr style="width: 100%; border: 0; border-top: 1.5px solid #E6DDD0; margin: 0">
+
+<section id="pricing" style="padding: 64px 0 48px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-size: clamp(32px, 4.4vw, 46px); line-height: 1.1; font-weight: 800; letter-spacing: -0.025em">What’s free, what’s paid — up front</h2>
+<div style="border: 1.5px solid #E6DDD0; border-radius: 14px; background: #FBF8F3; overflow: hidden">
+<div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); border-bottom: 1px solid #E6DDD0">
+<div style="display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-right: 1px solid #E6DDD0; font-size: 18px">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.2 8.6 7.5 10 4.3-1.4 7.5-5.4 7.5-10v-6z"></path><path d="M12 8v6"></path><path d="M9 11.5 12 14.5 15 11.5"></path></svg>
+<span>Emergency phrases</span>
+</div>
+<div style="display: flex; align-items: center; padding: 18px 28px; font-size: 19px; font-weight: 700; color: #C8102E">Free forever</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); border-bottom: 1px solid #E6DDD0">
+<div style="display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-right: 1px solid #E6DDD0; font-size: 18px">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"></path><path d="M9 4v13.5"></path><path d="M15 6.5V20"></path></svg>
+<span>Your first scene</span>
+</div>
+<div style="display: flex; align-items: center; padding: 18px 28px; font-size: 19px; font-weight: 700; color: #C8102E">Free</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); border-bottom: 1px solid #E6DDD0">
+<div style="display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-right: 1px solid #E6DDD0; font-size: 18px">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><path d="M3 6h1"></path><path d="M3 12h1"></path><path d="M3 18h1"></path></svg>
+<span>All 8 scenes + allergy cards</span>
+</div>
+<div style="display: flex; align-items: center; padding: 18px 28px; font-size: 19px">$6.99 once</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); border-bottom: 1px solid #E6DDD0">
+<div style="display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-right: 1px solid #E6DDD0; font-size: 18px">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><rect x="3" y="4.5" width="18" height="16" rx="2"></rect><path d="M3 9.5h18"></path><path d="M8 2.5v4"></path><path d="M16 2.5v4"></path></svg>
+<span>Subscription</span>
+</div>
+<div style="display: flex; align-items: center; padding: 18px 28px; font-size: 19px">None</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr)">
+<div style="display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-right: 1px solid #E6DDD0; font-size: 18px">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M2 8.8a15 15 0 0 1 20 0"></path><path d="M5 12.4a10 10 0 0 1 14 0"></path><path d="M8.5 15.9a5 5 0 0 1 7 0"></path><circle cx="12" cy="19.5" r="1" fill="#141414"></circle></svg>
+<span>Internet needed in Japan</span>
+</div>
+<div style="display: flex; align-items: center; padding: 18px 28px; font-size: 19px">No. Works offline.</div>
+</div>
+</div>
+</section>
+
+<footer style="padding: 8px 0 24px; text-align: center; font-size: 14px; line-height: 1.6; color: #6B665F">Made by a Japanese developer in Japan.<br>We store only your email (plus your trip timing, if you choose to share it), to send one launch email. Ask us to delete it anytime via our <a href="https://docs.google.com/forms/d/e/1FAIpQLSdefa2drYiFZGcjfRaFuXaliUSsRGlzov0VjOt6NVPA2L0whQ/viewform">contact form</a>.</footer>
+
+</div>
+
 </div>
 
 <script>
-  // ---- 設定（公開前に差し替える）------------------------------------------
+  // ---- 設定 ----------------------------------------------------------------
   // GOOGLE_FORM_ACTION: Googleフォームの formResponse URL
   // GOOGLE_FORM_EMAIL_ENTRY: メール欄の entry.XXXXXXXX
-  // GOOGLE_FORM_SOURCE_ENTRY: 流入元（utm_source/utm_campaign）を入れる短文欄の entry.XXXXXXXX
-  // GOOGLE_FORM_TRIP_ENTRY: 訪日時期を入れる短文欄の entry.XXXXXXXX（未設定の間はアンケートを出さない）
+  // GOOGLE_FORM_SOURCE_ENTRY: 流入元（utm_source/utm_medium/utm_campaign）を入れる短文欄
+  // GOOGLE_FORM_TRIP_ENTRY: 訪日時期を入れる短文欄
   // POSTHOG_KEY: PostHog の Project API Key（phc_...）
   const CONFIG = {
     GOOGLE_FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLSdJgGhWug7-BOz13jjHbanzQNxPJu6RGcLRM67BFjQf7pKe6Q/formResponse",
@@ -177,77 +276,95 @@
   const source = ["utm_source", "utm_medium", "utm_campaign"].map(k => params.get(k) || "-").join("/");
 
   // PostHog：Cookieを使わない（persistence: memory）匿名計測。メールアドレスは送らない。
-  if (!CONFIG.POSTHOG_KEY.includes("REPLACE_ME")) {
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init(CONFIG.POSTHOG_KEY, {
-      api_host: CONFIG.POSTHOG_HOST,
-      persistence: "memory",
-      disable_session_recording: true,
-      autocapture: false,
-    });
-    posthog.capture("$pageview");
-  }
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init(CONFIG.POSTHOG_KEY, {
+    api_host: CONFIG.POSTHOG_HOST,
+    persistence: "memory",
+    disable_session_recording: true,
+    autocapture: false,
+  });
+  posthog.capture("$pageview");
   const track = (event, props) => window.posthog && window.posthog.capture && window.posthog.capture(event, props);
 
   // 価格の欄まで見たか（読み進めの指標）
   let seenPrice = false;
   new IntersectionObserver(entries => {
     if (!seenPrice && entries.some(e => e.isIntersecting)) { seenPrice = true; track("lp_pricing_seen"); }
-  }).observe(document.querySelector("table"));
+  }).observe(document.getElementById("pricing"));
 
-  const form = document.getElementById("waitlist");
-  form.querySelector("input").addEventListener("focus", () => track("lp_email_focused"), { once: true });
+  const sendToForm = (email, trip) => {
+    const body = new URLSearchParams();
+    body.append(CONFIG.GOOGLE_FORM_EMAIL_ENTRY, email);
+    body.append(CONFIG.GOOGLE_FORM_SOURCE_ENTRY, source);
+    if (trip) body.append(CONFIG.GOOGLE_FORM_TRIP_ENTRY, trip);
+    // Googleフォームは CORS 応答を返さないので no-cors で送る（成否は応答から判定できない）
+    return fetch(CONFIG.GOOGLE_FORM_ACTION, { method: "POST", mode: "no-cors", body });
+  };
+
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const form = document.getElementById("signupForm");
+  const input = document.getElementById("emailPhoto");
+  const submitBtn = document.getElementById("submitBtn");
+  const err = document.getElementById("emailError");
+  const sendErr = document.getElementById("sendError");
+  const idle = document.getElementById("stepIdle");
+  const survey = document.getElementById("stepSurvey");
+  const done = document.getElementById("stepDone");
+  let email = "";
+
+  const show = step => {
+    idle.hidden = step !== "idle";
+    survey.hidden = step !== "survey";
+    done.hidden = step !== "done";
+  };
+  const finish = () => {
+    document.getElementById("doneEmail").textContent = email;
+    show("done");
+  };
+
+  input.addEventListener("focus", () => track("lp_email_focused"), { once: true });
+  input.addEventListener("input", () => { err.hidden = true; sendErr.hidden = true; });
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    // 設定前は送信しない（no-cors では失敗を検知できず、登録を取りこぼすため）
-    if ([CONFIG.GOOGLE_FORM_ACTION, CONFIG.GOOGLE_FORM_EMAIL_ENTRY, CONFIG.GOOGLE_FORM_SOURCE_ENTRY].some(v => v.includes("REPLACE_ME"))) {
-      alert("Sign-up isn't open yet — please check back soon.");
-      return;
-    }
-    const button = form.querySelector("button");
-    button.disabled = true;
-    const body = new URLSearchParams();
-    body.append(CONFIG.GOOGLE_FORM_EMAIL_ENTRY, form.email.value.trim());
-    body.append(CONFIG.GOOGLE_FORM_SOURCE_ENTRY, source);
+    const v = input.value.trim();
+    if (!EMAIL_RE.test(v)) { err.hidden = false; input.focus(); return; }
+    email = v;
+    sendErr.hidden = true;
+    submitBtn.disabled = true;
+    // 登録はこの時点で1行目として送る（アンケートを閉じて離脱した人も数えるため）
     try {
-      // Googleフォームは CORS 応答を返さないので no-cors で送る（成否は応答から判定できない）
-      await fetch(CONFIG.GOOGLE_FORM_ACTION, { method: "POST", mode: "no-cors", body });
+      await sendToForm(email);
       track("waitlist_submitted");
-      form.style.display = "none";
-      if (CONFIG.GOOGLE_FORM_TRIP_ENTRY.includes("REPLACE_ME")) {
-        document.getElementById("ok").style.display = "block";
-      } else {
-        survey.style.display = "block";
-        track("trip_survey_shown");
-      }
-    } catch (err) {
-      button.disabled = false;
-      alert("Something went wrong — please try again.");
+      show("survey");
+      track("trip_survey_shown");
+    } catch (_) {
+      sendErr.hidden = false;
+    } finally {
+      submitBtn.disabled = false;
     }
   });
 
   // 訪日時期のアンケート（登録の後に1問だけ。スキップできる）
   // Googleフォームは回答を書き換えられないので、メール＋流入元＋訪日時期を2行目として送る。
   // 登録数を数えるときは「訪日時期が空の行」だけを数える（2行目を数えると二重になる）。
-  const survey = document.getElementById("survey");
-  const finishSurvey = () => {
-    survey.style.display = "none";
-    document.getElementById("ok").style.display = "block";
-  };
   survey.querySelectorAll("[data-trip]").forEach(b => b.addEventListener("click", () => {
     const trip = b.dataset.trip;
-    const body = new URLSearchParams();
-    body.append(CONFIG.GOOGLE_FORM_EMAIL_ENTRY, form.email.value.trim());
-    body.append(CONFIG.GOOGLE_FORM_SOURCE_ENTRY, source);
-    body.append(CONFIG.GOOGLE_FORM_TRIP_ENTRY, trip);
     // 登録自体は済んでいるので、失敗しても利用者には見せずに終える
-    fetch(CONFIG.GOOGLE_FORM_ACTION, { method: "POST", mode: "no-cors", body }).catch(() => {});
+    sendToForm(email, trip).catch(() => {});
     track("trip_survey_answered", { trip });
-    finishSurvey();
+    finish();
   }));
-  document.getElementById("survey-skip").addEventListener("click", () => {
+  document.getElementById("skipBtn").addEventListener("click", () => {
     track("trip_survey_skipped");
-    finishSurvey();
+    finish();
+  });
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    email = "";
+    form.reset();
+    err.hidden = true;
+    sendErr.hidden = true;
+    show("idle");
+    input.focus();
   });
 </script>
 </body>
